@@ -11,7 +11,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("users")
 public class User {
     @Id
-    private long   id;
-    private String name;
-    private Long   balance;
+    private Long    id;
+    private String  name;
+    private Integer balance;
 }

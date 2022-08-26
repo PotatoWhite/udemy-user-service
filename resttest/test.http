@@ -1,0 +1,48 @@
+### get all users
+GET http://localhost:8092/user
+
+### create user
+POST http://localhost:8092/user
+Content-Type: application/json
+
+{
+  "name": "sam",
+  "balance": 1000
+}
+
+### get one user by id
+GET http://localhost:8092/user/1
+
+### change a user by id
+PUT http://localhost:8092/user/2
+Content-Type: application/json
+
+{
+  "name": "sam",
+  "balance": 1100
+}
+
+
+### update a user's properites
+PATCH http://localhost:8092/user/2
+Content-Type: application/json
+
+{
+  "name": "sam1"
+}
+
+### delete a user by id
+DELETE http://localhost:8092/user/1
+
+### create a user's transaction
+POST http://localhost:8092/user/transactions
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "amount": 100
+}
+
+
+### get all transactions
+GET http://localhost:8092/user/transactions?userId=2

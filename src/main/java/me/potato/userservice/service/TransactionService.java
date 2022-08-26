@@ -4,10 +4,12 @@ import lombok.RequiredArgsConstructor;
 import me.potato.userservice.dto.TransactionRequestDto;
 import me.potato.userservice.dto.TransactionResponseDto;
 import me.potato.userservice.dto.TransactionStatus;
+import me.potato.userservice.entity.UserTransaction;
 import me.potato.userservice.repository.UserRepository;
 import me.potato.userservice.repository.UserTransactionRepository;
 import me.potato.userservice.util.EntityDtoUtil;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -25,5 +27,11 @@ public class TransactionService {
                 .flatMap(userTransactionRepository::save)
                 .map(e -> EntityDtoUtil.toDto(dto, TransactionStatus.APPROVED))
                 .defaultIfEmpty(EntityDtoUtil.toDto(dto, TransactionStatus.DECLINED));
+    }
+
+    public Flux<UserTransaction> getAllByUserId(Long userId) {
+        return userTransactionRepository.findAllByUserId(userId);
+
+
     }
 }

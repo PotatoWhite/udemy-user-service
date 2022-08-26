@@ -12,6 +12,6 @@ public class UserTransaction {
     @Id
     private Long          id;
     private Long          userId;
-    private Long          amount;
+    private Integer       amount;
     private LocalDateTime transactionDate;
 }

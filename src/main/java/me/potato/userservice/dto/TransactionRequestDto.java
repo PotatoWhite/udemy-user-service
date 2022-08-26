@@ -3,9 +3,12 @@ package me.potato.userservice.dto;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 @ToString
 public class TransactionRequestDto {
-    private Long userId;
-    private Long amount;
+    @NotNull
+    private Long    userId;
+    private Integer amount;
 }

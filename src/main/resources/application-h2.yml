@@ -3,10 +3,9 @@ server:
 
 spring:
   r2dbc:
-    url: r2dbc:h2:mem:///~/db/userdb
-    username:
+    url: r2dbc:h2:mem:///userdb;DB_CLOSE_DELAY=-1
+    username: sa
     password:
-  h2:
-    console:
-      path: /h2-console
-      enabled: true
+  sql:
+    init:
+      platform: h2

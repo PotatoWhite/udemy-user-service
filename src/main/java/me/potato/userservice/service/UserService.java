@@ -45,7 +45,7 @@ public class UserService {
                             if (key.equals("name"))
                                 user.setName((String) value);
                             else if (key.equals("balance"))
-                                user.setBalance((Long) value);
+                                user.setBalance((Integer) value);
                         }))
                 .flatMap(userRepository::save)
                 .map(EntityDtoUtil::toDto);
